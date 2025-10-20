@@ -48,3 +48,53 @@
 | **Normal User**                 | Can use the system but has limited permissions.                                    | `centos`, `pugazh`           |
 | **System/User Daemon Accounts** | Created by Linux for running background services like databases, web servers, etc. | `daemon`, `mail`, `www-data` |
 
+## What is a Group in Linux?
+
+**A group in Linux is a collection of users.**
+**It helps manage permissions for multiple users at once.**
+
+**Instead of giving access to each user individually, you can assign permissions to a group, and all users in that group automatically get the same access.**
+
+*Why Groups Are Useful*
+
+1. Easier to manage shared access to files or folders.
+
+2. Helps organize users by role or department.
+
+3. Reduces administrative work — one permission change affects all group members.
+
+| Type                                | Description                                                                                    | Example                         |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------- |
+| **Primary Group**                   | Automatically assigned when a user is created. Files created by the user belong to this group. | Usually same as username        |
+| **Secondary (Supplementary) Group** | Additional groups that a user can join. Used for shared access.                                | e.g., `developers`, `sharedgrp` |
+
+*Group Details Are Stored In*
+
+*All groups are listed in the file:*
+
+```sh
+/etc/group
+```
+
+*To view all groups:*
+
+```sh 
+cat /etc/group
+```
+
+
+*Example output:*
+```sh
+centos:x:1000:
+developers:x:1001:pugazh
+```
+
+**Basic Group Commands**
+
+| Command                               | Description                          | Example                          |
+| ------------------------------------- | ------------------------------------ | -------------------------------- |
+| `sudo groupadd groupname`             | Creates a new group                  | `sudo groupadd devgrp`           |
+| `sudo usermod -aG groupname username` | Adds a user to a group               | `sudo usermod -aG devgrp pugazh` |
+| `groups username`                     | Shows which groups a user belongs to | `groups pugazh`                  |
+| `sudo gpasswd -d username groupname`  | Removes user from a group            | `sudo gpasswd -d pugazh devgrp`  |
+
