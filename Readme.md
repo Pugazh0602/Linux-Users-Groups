@@ -48,6 +48,13 @@
 | **Normal User**                 | Can use the system but has limited permissions.                                    | `centos`, `pugazh`           |
 | **System/User Daemon Accounts** | Created by Linux for running background services like databases, web servers, etc. | `daemon`, `mail`, `www-data` |
 
+| Role             | Description                       | Access Level |
+| ---------------- | --------------------------------- | ------------ |
+| Normal User      | Can only access own files         | Limited      |
+| Group User       | Can access shared group folders   | Shared       |
+| Root (Superuser) | Can access and control everything | Full         |
+
+
 ## What is a Group in Linux?
 
 **A group in Linux is a collection of users.**
@@ -97,4 +104,33 @@ developers:x:1001:pugazh
 | `sudo usermod -aG groupname username` | Adds a user to a group               | `sudo usermod -aG devgrp pugazh` |
 | `groups username`                     | Shows which groups a user belongs to | `groups pugazh`                  |
 | `sudo gpasswd -d username groupname`  | Removes user from a group            | `sudo gpasswd -d pugazh devgrp`  |
+
+## How to create a group in linux ?
+
+**Basic Syntax**
+```sh
+sudo groupadd groupname
+```
+
+1. sudo → gives you administrator (root) permission.
+
+2. groupadd → command used to create a new group.
+
+3. groupname → name of the group you want to create.
+
+Let’s create a group named developers:
+
+sudo groupadd developers
+
+
+**Output: (No message means success)**
+*You can check it using:*
+```sh
+cat /etc/group | grep developers
+```
+
+*You’ll see something like:*
+```sh
+developers:x:1002:
+```
 
