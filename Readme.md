@@ -128,7 +128,7 @@ sudo groupadd groupname
 sudo groupadd developers
 ```
 
-![alt text](img/image-1.png)
+![alt text](image-1.png)
 ---
 
 **Output: (No message means success)**
@@ -141,7 +141,7 @@ cat /etc/group | grep developers
 ```sh
 developers:x:1002:
 ```
-![alt text](img/image-2.png)
+![alt text](image-2.png)
 ---
 
 **Add Users to the Group**
@@ -156,7 +156,7 @@ sudo usermod -aG developers username
 sudo usermod -aG developers centos
 ```
 *Add all user of the group using this command*
-![alt text](img/image-3.png)
+![alt text](image-3.png)
 
 ---
 **Check Group Membership**
@@ -170,7 +170,7 @@ groups centos
 ```sh
 centos : centos developers
 ```
-![alt text](img/image-4.png)
+![alt text](image-4.png)
 ---
 
 ## How to create a shared folder for a group in Linux
