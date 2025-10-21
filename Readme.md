@@ -181,7 +181,7 @@ sudo usermod -aG developers centos
 groups centos
 ```
 
-Output:
+\\ Output:
 ```sh
 centos : centos developers
 ```
