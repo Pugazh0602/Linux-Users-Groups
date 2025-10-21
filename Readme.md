@@ -118,9 +118,10 @@ sudo groupadd groupname
 
 3. groupname → name of the group you want to create.
 
-Let’s create a group named developers:
+---
+**Let’s create a group named developers:**
 
-sudo groupadd developers
+*sudo groupadd developers*
 
 
 **Output: (No message means success)**
@@ -133,23 +134,24 @@ cat /etc/group | grep developers
 ```sh
 developers:x:1002:
 ```
+---
+**Let’s create a group named developers:**
 
-Let’s create a group named developers:
-
-sudo groupadd developers
+*sudo groupadd developers*
 
 
-**Output: (No message means success)**
+*Output: (No message means success)*
 *You can check it using:*
 ```sh
 cat /etc/group | grep developers
 ```
 
-You’ll see something like:
+*You’ll see something like:*
 ```sh
 developers:x:1002:
 ```
 
+---
 **Verify Group Creation**
 
 *To list all groups on your system:*
@@ -162,6 +164,7 @@ getent group
 cat /etc/group
 ```
 
+---
 **Add Users to the Group**
 
 *After creating a group, you can add a user to it:*
@@ -169,11 +172,12 @@ cat /etc/group
 sudo usermod -aG developers username
 ```
 
-Example:
+*Example:*
 ```sh
 sudo usermod -aG developers centos
 ```
 
+---
 **Check Group Membership**
 
 *To confirm a user is in the group:*
@@ -181,8 +185,10 @@ sudo usermod -aG developers centos
 groups centos
 ```
 
-\\ Output:
+*Output:*
 ```sh
 centos : centos developers
 ```
+
+---
 
