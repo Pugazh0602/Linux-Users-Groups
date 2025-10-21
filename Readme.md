@@ -134,3 +134,55 @@ cat /etc/group | grep developers
 developers:x:1002:
 ```
 
+Let’s create a group named developers:
+
+sudo groupadd developers
+
+
+**Output: (No message means success)**
+*You can check it using:*
+```sh
+cat /etc/group | grep developers
+```
+
+You’ll see something like:
+```sh
+developers:x:1002:
+```
+
+**Verify Group Creation**
+
+*To list all groups on your system:*
+```sh
+getent group
+```
+
+*or*
+```sh
+cat /etc/group
+```
+
+**Add Users to the Group**
+
+*After creating a group, you can add a user to it:*
+```sh
+sudo usermod -aG developers username
+```
+
+Example:
+```sh
+sudo usermod -aG developers centos
+```
+
+**Check Group Membership**
+
+*To confirm a user is in the group:*
+```sh
+groups centos
+```
+
+Output:
+```sh
+centos : centos developers
+```
+
