@@ -119,52 +119,31 @@ sudo groupadd groupname
 3. groupname → name of the group you want to create.
 
 ---
-**Let’s create a group named developers:**
+**Step 1: Boot into linux and login with your account**
+![alt text](image.png)
+---
 
-*sudo groupadd developers*
+**Step 2: Let’s create a group named developers:**
+```sh
+sudo groupadd developers
+```
 
+![alt text](img/image-1.png)
+---
 
 **Output: (No message means success)**
-*You can check it using:*
-```sh
-cat /etc/group | grep developers
-```
-
-*You’ll see something like:*
-```sh
-developers:x:1002:
-```
----
-**Let’s create a group named developers:**
-
-*sudo groupadd developers*
-
-
-*Output: (No message means success)*
-*You can check it using:*
-```sh
-cat /etc/group | grep developers
-```
-
-*You’ll see something like:*
-```sh
-developers:x:1002:
-```
-
----
 **Verify Group Creation**
-
-*To list all groups on your system:*
+*You can check it using:*
 ```sh
-getent group
+cat /etc/group | grep developers
 ```
-
-*or*
+*You’ll see something like:*
 ```sh
-cat /etc/group
+developers:x:1002:
 ```
-
+![alt text](img/image-2.png)
 ---
+
 **Add Users to the Group**
 
 *After creating a group, you can add a user to it:*
@@ -176,6 +155,8 @@ sudo usermod -aG developers username
 ```sh
 sudo usermod -aG developers centos
 ```
+*Add all user of the group using this command*
+![alt text](img/image-3.png)
 
 ---
 **Check Group Membership**
@@ -189,6 +170,81 @@ groups centos
 ```sh
 centos : centos developers
 ```
+![alt text](img/image-4.png)
+---
+
+## How to create a shared folder for a group in Linux
+
+*Create a Shared Folder*
+
+**Step 1: Use the mkdir command to make a folder everyone in the group can access.**
+
+```sh
+sudo mkdir /sharedgrp
+```
+
+*This creates a directory named /shared at the root level.*
+
+![alt text](image.png)
+
+---
+**Step 3: Change the Group Ownership**
+
+*Now, assign that folder to your group (for example, developers):*
+```sh
+sudo chown :developers /shared
+```
+
+*chown → change ownership command*
+
+*:developers → means group ownership only (not user)*
+
+*You can verify it using:*
+```sh
+ls -ld /shared
+```
+
+*Output might look like:*
+```sh
+drwxr-xr-x. 2 root developers 4096 Oct 20 10:45 /shared
+```
+*Step 4: Give Permission to the Group*
+
+*Allow full read, write, and execute access to group members:*
+```sh
+sudo chmod 770 /shared
+```
+
+*7 → read, write, execute (for owner)*
+
+*7 → read, write, execute (for group)*
+
+*0 → no access (for others)*
+
+*Now only the owner and group members can access it.*
+
+---
+
+**Step 5: Enable Automatic Group Inheritance**
+
+*So that new files inside /shared belong to the same group automatically:*
+
+```sh 
+sudo chmod g+s /shared
+```
+
+
+*Check again:*
+```sh
+ls -ld /shared
+```
+
+*You’ll see an s in the group permission area:*
+```sh
+drwxrws---. 2 root developers 4096 Oct 20 10:50 /shared
+```
+
+*That s means — new files/folders created here will inherit the group developers.*
 
 ---
 
