@@ -2,6 +2,20 @@
 
 ## Introduction
 **Linux is an open-source operating system that allows users to manage files, users, and system processes through commands. These commands are executed in a terminal.**
+---
+### Linux file structure
+
+**/home/centos/newFolder/file.txt**
+
+**/ - In Linux, the forward slash / represents the root directory, which is the topmost directory in the entire file system hierarchy. All other directories and files in the system are organized as branches stemming from this root. It is the base point from which all absolute paths begin.**
+
+**home -In Linux, the term "home" refers to a special directory for each user account, which serves as a personal workspace for storing files and personalized configurations**
+
+**centos - The "centos" user can store and manage their personal files and settings Which contain Documents, pictures, downloads, and videos**
+
+**newFolder - The directorie created by user**
+
+**file.txt - file created by user**
 
 ---------------------------------------------
 | Command      | Description                 |
